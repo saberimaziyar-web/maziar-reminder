@@ -1,0 +1,3 @@
+self.addEventListener('push',event=>{let data={title:'یادآوری',body:'زمان انجام کار رسیده است.',url:'/'};try{if(event.data)data={...data,...event.data.json()}}catch(e){}event.waitUntil(self.registration.showNotification(data.title,{body:data.body,icon:'/icon.svg',badge:'/icon.svg',data:{url:data.url||'/'},tag:'maziar-'+Date.now(),renotify:true}));});
+self.addEventListener('notificationclick',event=>{event.notification.close();event.waitUntil(clients.matchAll({type:'window',includeUncontrolled:true}).then(list=>{for(const c of list){if('focus'in c)return c.focus()}return clients.openWindow(event.notification.data?.url||'/')}));});
+self.addEventListener('install',()=>self.skipWaiting());self.addEventListener('activate',event=>event.waitUntil(clients.claim()));
