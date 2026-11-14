@@ -10,7 +10,7 @@ run_worker_first = true
 [[d1_databases]]
 binding = "DB"
 database_name = "maziar-reminder-db"
-database_id = "REPLACE_WITH_D1_DATABASE_ID"
+database_id = "6a342101-91fb-42b7-84b7-dcdf02198d82"
 migrations_dir = "migrations"
 
 [triggers]
